@@ -65,26 +65,23 @@ public class CreateServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
                 rd.forward(request, response);
             } else {
-                // データベースに保存
+             // データベースに保存
                 em.persist(m);
                 em.getTransaction().commit();
                 request.getSession().setAttribute("flush", "登録が完了しました。");
                 em.close();
-
-                // indexのページにリダイレクト
+             // indexのページにリダイレクト
                 response.sendRedirect(request.getContextPath() + "/index");
-            }
 
-            em.persist(m);
-            em.getTransaction().commit();
-            request.getSession().setAttribute("flush", "登録が完了しました。");
-            em.close();
 
-            response.sendRedirect(request.getContextPath() + "/index");
-        }
+
+
+
     }
 
 
     }
+    }
+}
 
 
